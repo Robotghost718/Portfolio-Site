@@ -40,7 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large media files
-/public/videos/*.mp4
+# large media files (use git-lfs for videos)
 /public/documents/*.pdf
 !public/documents/Daniel_Stern_Resume.pdf
