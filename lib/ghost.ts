@@ -1,10 +1,17 @@
 import GhostContentAPI from '@tryghost/content-api'
 
-const ghostAPI = new GhostContentAPI({
-  url: process.env.NEXT_PUBLIC_GHOST_URL || '',
-  key: process.env.NEXT_PUBLIC_GHOST_CONTENT_KEY || '',
-  version: 'v5.0',
-})
+let ghostAPI: InstanceType<typeof GhostContentAPI> | null = null
+
+function getGhostAPI() {
+  if (!ghostAPI && process.env.NEXT_PUBLIC_GHOST_URL && process.env.NEXT_PUBLIC_GHOST_CONTENT_KEY) {
+    ghostAPI = new GhostContentAPI({
+      url: process.env.NEXT_PUBLIC_GHOST_URL,
+      key: process.env.NEXT_PUBLIC_GHOST_CONTENT_KEY,
+      version: 'v5.0',
+    })
+  }
+  return ghostAPI
+}
 
 export type GhostPost = {
   id: string
@@ -20,7 +27,12 @@ export type GhostPost = {
 
 export async function getGhostPosts(): Promise<GhostPost[]> {
   try {
-    const posts = await ghostAPI.posts.browse({
+    const api = getGhostAPI()
+    if (!api) {
+      console.warn('Ghost API not configured')
+      return []
+    }
+    const posts = await api.posts.browse({
       limit: 'all',
       fields: 'id,title,slug,excerpt,feature_image,published_at,updated_at,url,html',
       include: ['tags', 'authors'],
@@ -45,7 +57,12 @@ export async function getGhostPosts(): Promise<GhostPost[]> {
 
 export async function getGhostPostBySlug(slug: string): Promise<GhostPost | null> {
   try {
-    const posts = await ghostAPI.posts.browse({
+    const api = getGhostAPI()
+    if (!api) {
+      console.warn('Ghost API not configured')
+      return null
+    }
+    const posts = await api.posts.browse({
       filter: `slug:${slug}`,
       limit: 1,
       include: ['tags', 'authors'],

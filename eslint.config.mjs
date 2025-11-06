@@ -14,7 +14,11 @@ const eslintConfig = [
     "next/core-web-vitals",
     "next/typescript",
   ),
-  "plugin:mdx/recommended",
+  {
+    rules: {
+      "mdx/no-unused-expressions": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
