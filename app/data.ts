@@ -94,7 +94,29 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   }
 ]
 
-export const BLOG_POSTS: BlogPost[] = []
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    title: 'Building a Raspberry Pi AV Controller',
+    description:
+      'Learn how to create a touchscreen interface for controlling AV equipment using a Raspberry Pi. Perfect for home automation and professional installations.',
+    link: 'https://github.com/Robotghost718/RPI-AV-Controller',
+    uid: 'blog1',
+  },
+  {
+    title: 'Salesforce Lightning Web Components',
+    description:
+      'Explore best practices for building reusable Lightning Web Components. Discover patterns for dynamic navigation and content rendering in Experience Cloud.',
+    link: 'https://github.com/Robotghost718/lwcSubPageNavigation',
+    uid: 'blog2',
+  },
+  {
+    title: 'Web Development at Scale',
+    description:
+      'Tips and tricks for managing large-scale web projects. From architecture to deployment, learn how to build robust and maintainable applications.',
+    link: 'https://dsweb.dev',
+    uid: 'blog3',
+  },
+]
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
