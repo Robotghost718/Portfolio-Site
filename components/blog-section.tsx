@@ -6,7 +6,6 @@ import { getBlogs } from '@/lib/blog'
 
 export function useBlogPosts() {
   const [posts, setPosts] = useState<BlogPost[]>(BLOG_POSTS)
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     async function loadPosts() {
@@ -22,8 +21,6 @@ export function useBlogPosts() {
       } catch (error) {
         console.error('Failed to load Ghost posts:', error)
         // Falls back to BLOG_POSTS
-      } finally {
-        setIsLoading(false)
       }
     }
     loadPosts()

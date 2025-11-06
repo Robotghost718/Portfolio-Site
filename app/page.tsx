@@ -18,7 +18,6 @@ import { PDFViewer } from '@/components/pdf-viewer'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
-  BLOG_POSTS,
   EMAIL,
   SOCIAL_LINKS,
 } from './data'

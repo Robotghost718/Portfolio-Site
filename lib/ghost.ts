@@ -1,13 +1,16 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let GhostContentAPI: any = null
 
 async function loadGhostAPI() {
   if (!GhostContentAPI) {
-    const module = await import('@tryghost/content-api')
-    GhostContentAPI = module.default
+    // eslint-disable-next-line @next/next/no-assign-module-variable, @typescript-eslint/no-explicit-any
+    const ghostModule: any = await import('@tryghost/content-api')
+    GhostContentAPI = ghostModule.default
   }
   return GhostContentAPI
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let ghostAPI: any = null
 
 async function getGhostAPI() {

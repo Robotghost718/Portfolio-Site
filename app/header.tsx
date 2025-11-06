@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export function Header() {
   const logoProps = {
-    alt: 'Logo',
+    alt: 'dsweb.dev logo',
     width: 40,
     height: 40,
   }
