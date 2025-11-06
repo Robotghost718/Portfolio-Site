@@ -3,7 +3,7 @@ let GhostContentAPI: any = null
 
 async function loadGhostAPI() {
   if (!GhostContentAPI) {
-    // eslint-disable-next-line @next/next/no-assign-module-variable, @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ghostModule: any = await import('@tryghost/content-api')
     GhostContentAPI = ghostModule.default
   }
@@ -50,6 +50,7 @@ export async function getGhostPosts(): Promise<GhostPost[]> {
       include: ['tags', 'authors'],
     })
     // Normalize posts to match GhostPost type (provide defaults for required fields)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return posts.map((p: any) => ({
       id: p.id || '',
       title: p.title || '',

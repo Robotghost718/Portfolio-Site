@@ -4,24 +4,22 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export function Header() {
-  const logoProps = {
-    alt: 'dsweb.dev logo',
-    width: 40,
-    height: 40,
-  }
-
   return (
     <header className="mb-12 font-['Pixelify_Sans']">
       <div className="flex items-start gap-2 w-fit">
         {/* Image - left */}
         <div className="w-fit h-fit">
           <Image
-            {...logoProps}
+            alt="dsweb.dev logo"
+            width={40}
+            height={40}
             src="/images/logos/GhostDSwebLogoDark.png"
             className="block dark:hidden w-fit"
           />
           <Image
-            {...logoProps}
+            alt="dsweb.dev logo"
+            width={40}
+            height={40}
             src="/images/logos/GhostDSwebLogoLight.png"
             className="hidden dark:block w-fit"
           />
