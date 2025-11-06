@@ -43,3 +43,4 @@ next-env.d.ts
 # large media files
 /public/videos/*.mp4
 /public/documents/*.pdf
+!public/documents/Daniel_Stern_Resume.pdf
